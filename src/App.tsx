@@ -1,26 +1,58 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Module, RootModule } from 'core';
+import { AppWrapper } from 'components';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const INSTALL_MODULE: any = {
+    'chat-room': require('./modules/chat-room')
+};
+
+class RootApplication extends React.Component<{}, { loading: boolean }> {
+    rootModule: RootModule;
+    constructor(props: {}) {
+        super(props);
+        this.state = {
+            loading: true
+        };
+        this.rootModule = new RootModule();
+    }
+    componentDidMount() {
+        this.init();
+    }
+    setupModule() {
+        for (let key in INSTALL_MODULE) {
+            const module = new Module(key);
+            INSTALL_MODULE[key].setup(module);
+            this.rootModule.register(module);
+        }
+    }
+    async init() {
+        this.setState({ loading: true });
+
+        // Setup module
+        this.setupModule();
+
+        this.setState({ loading: false });
+    }
+    renderRoute() {
+        return Object.entries(this.rootModule.routes()).map(([key, route]) => {
+            return <Route key={route.path} {...route} />;
+        });
+    }
+    render() {
+        if (this.state.loading) {
+            return <span>Loading</span>;
+        }
+        return (
+            <BrowserRouter basename="/">
+                <AppWrapper>
+                    <Switch>
+                        {this.renderRoute()}
+                    </Switch>
+                </AppWrapper>
+            </BrowserRouter>
+        );
+    }
 }
 
-export default App;
+export { RootApplication };

@@ -1,0 +1,53 @@
+$sizes: (
+    "1": xxs,
+    "2": xs,
+    "3": sm,
+    "4": md,
+    "5": lg,
+    "6": xl,
+    "7": 2xl,
+    "8": 3xl,
+    "9": 4xl,
+    "10": 5xl,
+);
+
+:root {
+    --bgColor-primary: #255f85;
+    --color-primary: white;
+    --bdColor-primary: #ccc;
+
+    --bgColor-secondary: #58a4b0;
+    --color-secondary: rgb(34, 34, 34);
+    --bdColor-secondary: #ccc;
+
+    --bgColor-tertiary: #a9bcd09e;
+    --color-tertiary: rgb(48, 48, 48);
+    --bdColor-tertiary: #ccc;
+
+    --spacing-scale: 4px;
+    --round-scale: 3px;
+
+    @each $i, $size in $sizes {
+        --spacing-#{$size}: calc(#{$i} * var(--spacing-scale));
+    }
+    --spacing: var(--spacing-md);
+
+    @each $i, $size in $sizes {
+        --fontSize-#{$size}: calc(#{$i} * 0.25rem);
+    }
+
+    @each $i, $size in $sizes {
+        --round-#{$size}: calc(#{$i} * var(--round-scale));
+    }
+
+    --round-full: 100px;
+    --round: var(--round-xxs);
+
+    --bd: 1px solid #ccc;
+    --bd-primary: 1px solid var(--bgColor-primary);
+    --bd-secondary: 1px solid var(--bgColor-secondary);
+    --bd-tertiary: 1px solid var(--bgColor-tertiary);
+
+    --bs: 0px 0px 3px 0px #0000002e;
+    --bs-md: 0px 0px 3px 1px #00000033;
+}

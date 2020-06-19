@@ -1,0 +1,17 @@
+.app-wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .body {
+        flex: 1;
+        background-color: #f1f1f1;
+    }
+
+    .footer {
+        background-color: var(--bgColor-tertiary);
+        color: var(--color-tertiary);
+        padding: var(--spacing-sm);
+        font-weight: bold;
+    }
+}
