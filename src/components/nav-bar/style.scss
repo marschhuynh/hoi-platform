@@ -5,7 +5,6 @@
     box-shadow: 0 1px 3px 0 rgba(27, 27, 27, 0.1);
     align-items: stretch;
     justify-content: center;
-    height: 54px;
     z-index: 999;
 
     & .nav-item-group {
@@ -83,6 +82,7 @@
         color: var(--color-primary);
         height: 54px;
         font-weight: bold;
+        font-size: var(--fontSize-lg);
 
         & .menu-toggle {
             font-size: 1.5em;
@@ -130,7 +130,7 @@
     }
 }
 
-.drop-down-notification {
+.drop-down {
     .wrap {
         display: flex;
         flex-direction: column;
