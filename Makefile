@@ -1,2 +1,5 @@
+# develop | production | certify
+TARGET_ENV?=develop
+
 run:
-    yarn start
+	@REACT_APP_ENV=./.env.${TARGET_ENV} yarn start

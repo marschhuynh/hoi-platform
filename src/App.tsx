@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { Module, RootModule } from 'core';
-import { AppWrapper } from 'components';
+import { AppWrapper, NotFoundPage } from 'components';
 
 const INSTALL_MODULE: any = {
     'chat-room': require('./modules/chat-room')
@@ -48,6 +48,7 @@ class RootApplication extends React.Component<{}, { loading: boolean }> {
                 <AppWrapper>
                     <Switch>
                         {this.renderRoute()}
+                        <Route component={NotFoundPage} />
                     </Switch>
                 </AppWrapper>
             </BrowserRouter>

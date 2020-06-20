@@ -1,9 +1,10 @@
 import React from 'react';
+import { getConfig } from 'config';
 
 export function Footer() {
     return (
         <div className="footer">
-            <span>This is a footer</span>
+            Copyright © {(new Date()).getFullYear()} <strong>{getConfig('BRANCH_NAME')}</strong>.
         </div>
     );
 }
