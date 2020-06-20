@@ -1,0 +1,85 @@
+.panel {
+    display: flex;
+    flex-direction: column;
+    &-header {
+        background-color: var(--bgColor-secondary);
+        color: var(--color-secondary);
+        padding: var(--spacing);
+        font-size: var(--fontSize-md);
+        font-weight: bold;
+
+        .count {
+            float: right;
+        }
+    }
+    &-body {
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 41px);
+
+        .ant-upload.ant-upload-drag.file-upload-drag {
+            margin: var(--spacing);
+            width: unset;
+            height: unset;
+        }
+    }
+}
+
+.playlist {
+    height: 100%;
+    overflow: hidden;
+    background-color: white;
+
+    .play-util {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 var(--spacing) var(--spacing) var(--spacing);
+    }
+    .virtual-list {
+        height: 100%;
+        overflow-x: hidden;
+        padding: 0 var(--spacing);
+        & > * {
+            margin-top: var(--spacing);
+        }
+        & > *:first-child {
+            margin-top: 0;
+        }
+    }
+    .playlist-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing);
+        background-color: var(--bgColor-tertiary);
+        color: var(--color-tertiary);
+        border-radius: var(--round);
+
+        &:hover {
+            background-image: var(--bg-hover);
+        }
+
+        .meta-info {
+            display: flex;
+            overflow: hidden;
+            padding: 0 var(--spacing-sm);
+            flex-direction: column;
+            flex: 1;
+            .file-name {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-weight: bold;
+            }
+            .file-author {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: var(--fontSize-sm);
+                strong {
+                    color: var(--bgColor-primary);
+                }
+            }
+        }
+    }
+}

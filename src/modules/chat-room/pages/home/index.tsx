@@ -1,5 +1,5 @@
 import React from 'react';
-import { UploadStream } from 'modules/chat-room/components';
+import { Playlist } from 'modules/chat-room/components';
 
 import './style.scss';
 import { Row, Col } from 'antd';
@@ -9,7 +9,7 @@ export function ChatRoomPage() {
         <div className="chat-room">
             <Row gutter={14}>
                 <Col xs={24} md={12} lg={8}>
-                    <UploadStream />
+                    <Playlist />
                 </Col>
                 <Col xs={24} md={12} lg={16}>
                     ChatRoomHere

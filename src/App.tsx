@@ -2,6 +2,8 @@ import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { Module, RootModule } from 'core';
 import { AppWrapper, NotFoundPage } from 'components';
+import { connect } from 'mqtt';
+import { BusStream } from 'access';
 
 const INSTALL_MODULE: any = {
     'chat-room': require('./modules/chat-room')
@@ -31,6 +33,21 @@ class RootApplication extends React.Component<{}, { loading: boolean }> {
 
         // Setup module
         this.setupModule();
+        var client = connect('wss://test.mosquitto.org', { port: 8081 });
+
+        client.on('connect', function () {
+            client.subscribe('hoi-stream-music', function (err) {
+                if (!err) {
+                    console.log('Notify');
+                    client.publish('hoi-stream-music', 'New member');
+                }
+            });
+        });
+
+        client.on('message', function (topic, message) {
+            console.log('OnMessage', message);
+            BusStream.publish(topic, message);
+        });
 
         this.setState({ loading: false });
     }

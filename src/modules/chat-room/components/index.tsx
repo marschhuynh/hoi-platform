@@ -1,1 +1,1 @@
-export { UploadStream } from './upload';
+export { Playlist } from './playlist';

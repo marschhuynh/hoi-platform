@@ -1,5 +1,6 @@
 import React from 'react';
 import { getConfig } from 'config';
+import './style.scss';
 
 export function Footer() {
     return (
