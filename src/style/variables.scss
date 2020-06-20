@@ -17,14 +17,16 @@ $sizes: (
     --bdColor-primary: #ccc;
 
     --bgColor-secondary: #58a4b0;
-    --color-secondary: rgb(34, 34, 34);
+    --color-secondary: rgb(255, 255, 255);
     --bdColor-secondary: #ccc;
 
     --bgColor-tertiary: #a9bcd09e;
     --color-tertiary: rgb(48, 48, 48);
     --bdColor-tertiary: #ccc;
 
-    --spacing-scale: 4px;
+    --bg-hover: linear-gradient(#00000012, #00000012);
+
+    --spacing-scale: 2px;
     --round-scale: 3px;
 
     @each $i, $size in $sizes {

@@ -1,0 +1,13 @@
+.chat-room {
+    padding: var(--spacing);
+    overflow: hidden;
+    height: calc(100vh - 54px - 34px);
+
+    & > .ant-row {
+        height: 100%;
+
+        & > .ant-col {
+            height: 100%;
+        }
+    }
+}

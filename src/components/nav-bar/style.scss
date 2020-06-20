@@ -77,7 +77,7 @@
         display: flex;
         flex-shrink: 0;
         align-items: center;
-        padding: 0 var(--spacing-sm);
+        padding: 0 var(--spacing);
         background-color: var(--bgColor-primary);
         color: var(--color-primary);
         height: 54px;
@@ -118,7 +118,7 @@
         & .branch-name {
             & .menu-toggle {
                 margin-left: auto;
-                padding: 12px;
+                padding: var(--spacing);
                 display: initial !important;
                 cursor: pointer;
             }

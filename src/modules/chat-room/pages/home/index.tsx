@@ -1,9 +1,20 @@
 import React from 'react';
+import { UploadStream } from 'modules/chat-room/components';
+
+import './style.scss';
+import { Row, Col } from 'antd';
 
 export function ChatRoomPage() {
     return (
-        <div>
-            <div>This is home page</div>
+        <div className="chat-room">
+            <Row gutter={14}>
+                <Col xs={24} md={12} lg={8}>
+                    <UploadStream />
+                </Col>
+                <Col xs={24} md={12} lg={16}>
+                    ChatRoomHere
+                </Col>
+            </Row>
         </div>
     );
 }
